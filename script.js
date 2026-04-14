@@ -45,7 +45,7 @@ const io = new IntersectionObserver(
 );
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// Contact form — Web3Forms
+// Contact form — posts to /api/contact (Vercel serverless → Resend)
 const form = document.getElementById('contactForm');
 const status = document.getElementById('formStatus');
 const submitBtn = form.querySelector('button[type="submit"]');
@@ -54,15 +54,20 @@ form.addEventListener('submit', async e => {
   e.preventDefault();
 
   const formData = new FormData(form);
-  const name = (formData.get('name') || '').trim();
-  const email = (formData.get('email') || '').trim();
+  const payload = {
+    name: (formData.get('name') || '').trim(),
+    email: (formData.get('email') || '').trim(),
+    phone: (formData.get('phone') || '').trim(),
+    message: (formData.get('message') || '').trim(),
+    botcheck: formData.get('botcheck') ? true : false
+  };
 
-  if (!name || !email) {
+  if (!payload.name || !payload.email) {
     status.textContent = 'Prosím vyplňte jméno a email.';
     status.className = 'form__status error';
     return;
   }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
     status.textContent = 'Zadejte prosím platný email.';
     status.className = 'form__status error';
     return;
@@ -75,20 +80,19 @@ form.addEventListener('submit', async e => {
   status.className = 'form__status';
 
   try {
-    const res = await fetch('https://api.web3forms.com/submit', {
+    const res = await fetch('/api/contact', {
       method: 'POST',
-      headers: { Accept: 'application/json' },
-      body: formData
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload)
     });
-    const data = await res.json();
-    console.log('Web3Forms response:', data);
+    const data = await res.json().catch(() => ({}));
 
-    if (data.success) {
+    if (res.ok && data.success) {
       status.textContent = 'Děkuji! Zpráva odeslána, ozvu se vám co nejdříve.';
       status.className = 'form__status success';
       form.reset();
     } else {
-      throw new Error(data.message || 'Odeslání selhalo');
+      throw new Error(data.error || 'Odeslání selhalo');
     }
   } catch (err) {
     console.error('Form submit error:', err);

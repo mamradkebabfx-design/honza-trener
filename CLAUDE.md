@@ -29,7 +29,7 @@ Assets:
 - Trainer photos currently used: `assets/honza-hero.jpg` (hero, right column) and `assets/honza-about.jpg` (also used as OG image).
 
 SEO:
-- `robots.txt` and `sitemap.xml` hardcode `https://honzaprochazka.cz/`. Same for canonical / OG URLs and all `@id`s in the JSON-LD block in `index.html`. **Before launch, replace this placeholder domain everywhere.**
+- Canonical / OG URLs / `robots.txt` / `sitemap.xml` / all JSON-LD `@id`s in `index.html` currently hardcode `https://honza-trener.vercel.app/` (the live Vercel URL). When the real domain is attached, replace this string in all three files (`index.html`, `robots.txt`, `sitemap.xml`) in one pass.
 - Meta description, OG tags, and JSON-LD all duplicate copy from the page — when editing pricing, FAQ answers, or contact details, update the JSON-LD block in `index.html` head as well.
 
 ## Contact form (Web3Forms)
@@ -38,7 +38,7 @@ SEO:
 - Access key is hardcoded in a hidden `access_key` input in `index.html`. The destination email is configured in the Web3Forms dashboard (not in the code) — currently set to `prochazka.coaching@gmail.com`.
 - Form has a honeypot field `botcheck` (hidden checkbox) and `subject` / `from_name` hidden inputs.
 - **Gotcha — `form.name` trap:** accessing form fields as `form.fieldName` doesn't work for a field named `name`, because `HTMLFormElement.name` reflects the form's own `name` attribute (a string). Always use `FormData` or `form.elements.namedItem()` to read values.
-- **Known issue — O2 Czech Republic ISP blocks `api.web3forms.com`** via TLS intercept (returns a `*.o2.cz` cert instead of the real one). The form will fail with "Failed to fetch" on O2 networks. Test the form only from mobile data or a non-O2 network after deployment. This is not a bug in the code.
+- **Known issue — O2 Czech Republic blocks `api.web3forms.com`** via TLS intercept. Any request from an O2 network gets back a `*.o2.cz` certificate issued by "O2 Czech Republic a.s." instead of Web3Forms' real cert, and the browser correctly refuses with "Failed to fetch" / Safari "Load failed". **This is not a bug in the code** — verified with `curl -v https://api.web3forms.com/` from the user's Mac. Critically, **O2 is also a mobile carrier in CZ**, so switching to mobile data does NOT bypass it if the SIM is from O2 — test only from a non-O2 network (T-Mobile, Vodafone). Real fix when this becomes a priority: move the form off Web3Forms (Formspree, or a Vercel serverless function under `/api/contact` that uses Resend/SendGrid — an own-domain endpoint cannot be intercepted).
 
 ## Conventions specific to this project
 
@@ -53,6 +53,7 @@ SEO:
 
 Per the user's global instructions: deploy flow is Git → GitHub → Vercel (auto-deploy). Git author email must be `mamradkebabfx@gmail.com`. Never commit or push without explicit request.
 
-- Git repo is initialized. Remote `origin` points to `https://github.com/mamradkebabfx-design/honza-trener.git`.
-- Authentication for push is not yet set up — the user has no `gh` CLI and no Homebrew. When a push is needed, guide them via GitHub Desktop or a Personal Access Token; don't try `brew install gh`.
-- After Vercel deploy, the `honzaprochazka.cz` placeholder must be replaced with the real domain (or the Vercel URL) in `index.html` (canonical, OG, JSON-LD `@id`s), `robots.txt`, and `sitemap.xml`.
+- Git remote `origin` → `https://github.com/mamradkebabfx-design/honza-trener.git`.
+- **Live URL:** `https://honza-trener.vercel.app/`. Vercel project is connected to the GitHub repo and auto-deploys on every push to `main` (no build step — static files only).
+- **Pushing:** the user pushes via **GitHub Desktop** (authentication is set up there). They have no `gh` CLI and no Homebrew — do not try `brew install gh`. For new commits, prepare the changes and a commit message, then ask them to commit+push from GitHub Desktop.
+- **No custom domain yet.** When the real domain is attached later, search-and-replace `honza-trener.vercel.app` → new domain in `index.html`, `robots.txt`, `sitemap.xml` (one pass across the three files).
