@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /assets/
 
-Sitemap: https://honza-trener.vercel.app/sitemap.xml
+Sitemap: https://www.honzacoach.cz/sitemap.xml
