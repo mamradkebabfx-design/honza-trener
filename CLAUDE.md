@@ -2,6 +2,17 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## ⚠️ Active follow-up checklist (read at session start)
+
+There is a pending post-launch checklist at **`../dalsi-kroky.md`** (sibling of this repo, intentionally outside git). It contains SEO submission tasks (Google Search Console, Seznam Webmaster, Bing), sanity checks (contact form E2E, Open Graph preview, JSON-LD validation, PageSpeed), Resend branded sender setup, and low-priority polish.
+
+**At the start of any new session, before starting unrelated work, do this:**
+1. Read `../dalsi-kroky.md` to see what's still unchecked.
+2. Greet the user with a one-sentence reminder of where they were (e.g. *"Pamatuj — ještě je rozdělaný checklist `dalsi-kroky.md`, naposledy jsme byli u sekce X. Chceš v něm pokračovat, nebo děláš dnes něco jiného?"*).
+3. If they want to continue, jump in. If they want something else, drop the reminder and proceed.
+
+**When the user confirms the checklist is fully done, remove this section from CLAUDE.md and delete `../dalsi-kroky.md`.** It's transient state, not durable project documentation.
+
 ## Project
 
 Landing page for **Honza Procházka**, a personal fitness trainer in Prague specializing in kinesiology. Vanilla HTML / CSS / JS — no build step, no framework, no package manager. The only backend code is a single Vercel serverless function (`api/contact.js`) that handles form submissions. Primary goal is client acquisition (booking first session). Language is Czech.
