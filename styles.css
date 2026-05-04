@@ -292,33 +292,37 @@ p{color:var(--ink-2)}
   box-shadow:var(--shadow-lg);z-index:40;
 }
 
-/* ---------- AGE GATE ---------- */
-.age-gate{
-  position:fixed;inset:0;z-index:100;
-  background:rgba(10,11,13,.78);
-  backdrop-filter:blur(8px);
-  display:flex;align-items:center;justify-content:center;
-  padding:1.5rem;
-  animation:fadeIn .35s var(--ease);
-}
-.age-gate[hidden]{display:none}
-.age-gate__box{
-  background:#fff;max-width:440px;width:100%;
-  padding:2.5rem 2rem;border-radius:var(--radius);
-  text-align:center;box-shadow:var(--shadow-lg);
-  animation:riseIn .4s var(--ease);
-}
-.age-gate__logo{width:54px;height:54px;object-fit:contain;margin:0 auto 1rem}
-.age-gate__box h2{font-size:1.5rem;margin-bottom:.75rem}
-.age-gate__box p{color:var(--muted);font-size:.95rem;margin-bottom:1.75rem}
-.age-gate__actions{display:flex;flex-direction:column;gap:.75rem}
-.age-gate__note{
-  margin-top:1.25rem;padding-top:1.25rem;
-  border-top:1px solid var(--line);
-  color:#d14343;font-size:.88rem;
-}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes riseIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ---------- COOKIE BANNER ---------- */
+.cookie-banner{
+  position:fixed;left:16px;right:16px;bottom:16px;
+  z-index:90;
+  background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-lg);
+  padding:1.25rem 1.4rem;
+  max-width:520px;margin:0 auto;
+  animation:riseIn .35s var(--ease);
+}
+.cookie-banner[hidden]{display:none}
+.cookie-banner__title{
+  font-size:.95rem;font-weight:700;color:var(--ink);
+  margin-bottom:.4rem;
+}
+.cookie-banner__text{
+  font-size:.88rem;color:var(--ink-2);
+  margin-bottom:1rem;line-height:1.5;
+}
+.cookie-banner__actions{
+  display:flex;gap:.6rem;justify-content:flex-end;flex-wrap:wrap;
+}
+.cookie-banner__actions .btn{padding:.6rem 1.1rem;font-size:.85rem}
+@media (min-width:768px){
+  .cookie-banner{
+    left:auto;right:24px;bottom:24px;margin:0;
+  }
+}
 
 /* ---------- REVEAL ANIMATIONS ---------- */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
