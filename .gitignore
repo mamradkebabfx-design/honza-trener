@@ -4,3 +4,12 @@
 node_modules/
 *.log
 images/
+
+# Secrets — never commit
+.env
+.env.*
+*.key
+*.pem
+re_*
+sk_*
+pk_live_*
