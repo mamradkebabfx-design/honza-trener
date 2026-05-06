@@ -99,6 +99,7 @@ form.addEventListener('submit', async e => {
       status.textContent = 'Děkuji! Zpráva odeslána, ozvu se vám co nejdříve.';
       status.className = 'form__status success';
       form.reset();
+      if (window.fbq) fbq('track', 'Lead');
     } else {
       throw new Error(data.error || 'Odeslání selhalo');
     }
