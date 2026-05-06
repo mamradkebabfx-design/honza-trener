@@ -58,7 +58,7 @@ The form posts JSON to `/api/contact` (same-origin Vercel function) which relays
 ## Conventions specific to this project
 
 - Copy is in Czech. Keep tone calm, human, non-pushy per `honza-trener.md`.
-- Instagram handle is `@_honza_prochazka` (note leading underscore). Email is `prochazka.coaching@gmail.com`. Location: Form Factory, Václavské náměstí, Prague.
+- Instagram handle is `@honza.mbk`. Email is `prochazka.coaching@gmail.com`. Location: Form Factory, Václavské náměstí, Prague.
 - Pricing: 1×/week = 800 Kč, 2×/week = 700 Kč, 3×/week = 600 Kč — these appear in the pricing section AND the JSON-LD `Offer` list; update both. Pricing cards do not have "Vybrat" buttons (removed by design).
 - Cookie consent banner (`#cookieBanner`) gates Meta Pixel — Pixel only initializes after `localStorage.cookieConsent === 'accepted'`. The banner shows once on first visit and remembers the choice. Don't remove without being asked.
 - Meta Pixel ID is `2426159907898226`. Code lives in `script.js` (`loadMetaPixel()`), not inline in `<head>`, so it can stay deferred until consent.
