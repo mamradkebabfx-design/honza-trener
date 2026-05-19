@@ -35,7 +35,7 @@ python3 -m http.server 8000
 Four files make up the whole app:
 - `index.html` — single-page layout. Current section order: hero (title + trainer photo, no benefits inline) → about (`#o-mne`, text only) → benefits (`#benefity`, 4 cards) → for-whom → pricing (`#cenik`) → FAQ (`#faq`) → CTA/contact (`#kontakt`) → footer. Contains inline JSON-LD structured data (LocalBusiness, Person, Service+Offer, FAQPage) — keep it in sync with visible copy when editing pricing, FAQ, or contact info.
 - `styles.css` — all styles. Design tokens are CSS custom properties on `:root` (colors, radius, shadow, easing). Minimalistic aesthetic: black/white/gray with a single green accent (`--accent: #14a277`). Mobile-first, single stylesheet, no preprocessor.
-- `script.js` — Meta Pixel loader (gated by cookie consent, `localStorage.cookieConsent`), cookie banner show/hide, sticky nav shadow, mobile menu toggle, IntersectionObserver reveal animations (`.reveal` → `.visible`), contact form AJAX submission to `/api/contact` (JSON body) with loading/success/error states, and `fbq('track', 'Lead')` fired on successful submit (guarded by `if (window.fbq)` so it no-ops when consent was rejected).
+- `script.js` — sticky nav shadow, mobile menu toggle, IntersectionObserver reveal animations (`.reveal` → `.visible`), contact form AJAX submission to `/api/contact` (JSON body) with loading/success/error states.
 - `api/contact.js` — Vercel serverless function (Node.js runtime, ES module). Parses JSON body, checks the honeypot, server-side validates `name` / `email` / length limits, then calls the Resend API (`https://api.resend.com/emails`) using `RESEND_API_KEY` from env. Sends plain-text mail to `prochazka.coaching@gmail.com` from `onboarding@resend.dev` with `reply_to` set to the visitor's email. Uses native `fetch` — no npm dependencies, so there is still no `package.json`.
 
 Assets:
@@ -61,8 +61,6 @@ The form posts JSON to `/api/contact` (same-origin Vercel function) which relays
 - Copy is in Czech. Keep tone calm, human, non-pushy per `honza-trener.md`.
 - Instagram handle is `@honza.mbk`. Email is `prochazka.coaching@gmail.com`. Location: Form Factory, Václavské náměstí, Prague.
 - Pricing: 1×/week = 800 Kč, 2×/week = 700 Kč, 3×/week = 600 Kč — these appear in the pricing section AND the JSON-LD `Offer` list; update both. Pricing cards do not have "Vybrat" buttons (removed by design).
-- Cookie consent banner (`#cookieBanner`) gates Meta Pixel — Pixel only initializes after `localStorage.cookieConsent === 'accepted'`. The banner shows once on first visit and remembers the choice. Don't remove without being asked.
-- Meta Pixel ID is `2426159907898226`. Code lives in `script.js` (`loadMetaPixel()`), not inline in `<head>`, so it can stay deferred until consent.
 - Reveal animation: any new section element that should fade in on scroll needs the `reveal` class — the IntersectionObserver in `script.js` picks it up automatically.
 - Featured pricing card (`.plan--featured`) has a dark background; any text/button inside it needs explicit white-on-dark overrides (already done for list items, h3, price small, and the primary button).
 

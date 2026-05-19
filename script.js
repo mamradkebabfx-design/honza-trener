@@ -1,34 +1,3 @@
-// Meta Pixel — loaded only after cookie consent (GDPR)
-const META_PIXEL_ID = '2426159907898226';
-function loadMetaPixel() {
-  if (window.fbq) return;
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', META_PIXEL_ID);
-  fbq('track', 'PageView');
-}
-
-// Cookie consent
-const cookieBanner = document.getElementById('cookieBanner');
-const cookieAccept = document.getElementById('cookieAccept');
-const cookieReject = document.getElementById('cookieReject');
-
-const consent = localStorage.getItem('cookieConsent');
-if (consent === 'accepted') {
-  loadMetaPixel();
-} else if (!consent) {
-  cookieBanner.hidden = false;
-}
-
-cookieAccept.addEventListener('click', () => {
-  localStorage.setItem('cookieConsent', 'accepted');
-  cookieBanner.hidden = true;
-  loadMetaPixel();
-});
-cookieReject.addEventListener('click', () => {
-  localStorage.setItem('cookieConsent', 'rejected');
-  cookieBanner.hidden = true;
-});
-
 // Year
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -99,7 +68,7 @@ form.addEventListener('submit', async e => {
       status.textContent = 'Děkuji! Zpráva odeslána, ozvu se vám co nejdříve.';
       status.className = 'form__status success';
       form.reset();
-      if (window.fbq) fbq('track', 'Lead');
+
     } else {
       throw new Error(data.error || 'Odeslání selhalo');
     }
