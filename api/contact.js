@@ -48,7 +48,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'Honza Procházka web <onboarding@resend.dev>',
-        to: ['prochazka.coaching@gmail.com'],
+        to: ['honza.mbk@gmail.com'],
         reply_to: trimmedEmail,
         subject: `Nová poptávka z webu — ${trimmedName}`,
         text: body
