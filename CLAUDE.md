@@ -41,7 +41,7 @@ Five files make up the whole app:
 
 Assets:
 - `assets/` is the only image folder referenced by `index.html` (logo, trainer photos). Add new photos directly here.
-- Trainer photos currently used: `assets/honza-hero.jpg` (hero, right column) and `assets/honza-about.jpg` (also used as OG image).
+- Trainer photos currently used: `assets/honza-hero-1.JPG` (hero, right column — gym training scene) and `assets/honza-about.jpg` (also used as OG image).
 
 SEO:
 - Canonical / OG URLs / `robots.txt` / `sitemap.xml` / all JSON-LD `@id`s in `index.html` use `https://www.honzacoach.cz/` (production canonical, with `www`). The bare `vercel.app` URL is no longer referenced in code — keep it that way. The apex `honzacoach.cz` redirects (307) to `www.honzacoach.cz` via Vercel — if you ever flip `www` ↔ apex as primary in Vercel, you MUST also update all 16 occurrences in these three files in one pass to keep canonical consistent with the redirect direction.
@@ -62,7 +62,7 @@ The form posts JSON to `/api/contact` (same-origin Vercel function) which relays
 
 - Copy is in Czech. Keep tone calm, human, non-pushy per `honza-trener.md`.
 - Instagram handle is `@honza.mbk`. Email is `honza.sac@gmail.com`. Location: Form Factory, Václavské náměstí, Prague.
-- Pricing: 1×/week = 800 Kč, 2×/week = 700 Kč, 3×/week = 600 Kč — these appear in the pricing section AND the JSON-LD `Offer` list; update both. Pricing cards do not have "Vybrat" buttons (removed by design).
+- Pricing: 1×/week = 900 Kč, 2×/week = 850 Kč, 3×/week = 750 Kč (per contract) — these appear in the pricing section AND the JSON-LD `Offer` list; update both. Pricing cards do not have "Vybrat" buttons (removed by design).
 - Reveal animation: any new section element that should fade in on scroll needs the `reveal` class — the IntersectionObserver in `script.js` picks it up automatically.
 - Featured pricing card (`.plan--featured`) has a dark background; any text/button inside it needs explicit white-on-dark overrides (already done for list items, h3, price small, and the primary button).
 
