@@ -8,7 +8,7 @@
   <meta name="author" content="Honza Procházka" />
 
   <title>Osobní trenér Praha — Honza Procházka | Kineziologie &amp; trénink bez bolesti</title>
-  <meta name="description" content="Osobní trénink v centru Prahy s Honzou Procházkou. Specializace na kineziologii, funkční pohyb a bezpečné cvičení při bolestech zad. Form Factory — Václavské náměstí. Přijímám nové klienty." />
+  <meta name="description" content="Osobní trénink v centru Prahy s Honzou Procházkou. Specializace na kineziologii, funkční pohyb a bezpečné cvičení při bolestech zad. Form Factory — Václavské náměstí. Zdarma úvodní konzultace." />
   <meta name="keywords" content="osobní trenér Praha, kineziologie Praha, funkční trénink, bolesti zad cvičení, trénink Václavské náměstí, osobní trénink Form Factory, 3DFA trenér" />
 
   <link rel="canonical" href="https://www.honzacoach.cz/" />
@@ -17,14 +17,14 @@
   <meta property="og:locale" content="cs_CZ" />
   <meta property="og:site_name" content="Honza Procházka — Osobní trenér Praha" />
   <meta property="og:title" content="Osobní trenér Praha — Honza Procházka | Kineziologie" />
-  <meta property="og:description" content="Zbavte se bolesti zad a začněte se hýbat správně. Individuální tréninky postavené na kineziologii. Centrum Prahy — Form Factory." />
+  <meta property="og:description" content="Zbavte se bolesti zad a začněte se hýbat správně. Individuální tréninky postavené na kineziologii. Zdarma úvodní konzultace — centrum Prahy, Form Factory." />
   <meta property="og:url" content="https://www.honzacoach.cz/" />
   <meta property="og:image" content="https://www.honzacoach.cz/assets/honza-about.jpg" />
   <meta property="og:image:alt" content="Honza Procházka — osobní trenér Praha" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Osobní trenér Praha — Honza Procházka" />
-  <meta name="twitter:description" content="Kineziologie, funkční pohyb a trénink bez bolesti v centru Prahy." />
+  <meta name="twitter:description" content="Kineziologie, funkční pohyb a zdarma úvodní konzultace v centru Prahy." />
   <meta name="twitter:image" content="https://www.honzacoach.cz/assets/honza-about.jpg" />
 
   <meta name="geo.region" content="CZ-10" />
@@ -37,6 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="assets/honza-about.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/honza-hero-1.JPG" fetchpriority="high" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 
@@ -85,6 +86,7 @@
         "provider": { "@id": "https://www.honzacoach.cz/#business" },
         "areaServed": "Praha",
         "offers": [
+          { "@type": "Offer", "name": "Úvodní konzultace", "price": "0", "priceCurrency": "CZK" },
           { "@type": "Offer", "name": "1× týdně", "price": "900", "priceCurrency": "CZK" },
           { "@type": "Offer", "name": "2× týdně", "price": "850", "priceCurrency": "CZK" },
           { "@type": "Offer", "name": "3× týdně", "price": "750", "priceCurrency": "CZK" }
@@ -147,7 +149,7 @@
         <a href="#benefity">Co získáte</a>
         <a href="#cenik">Ceník</a>
         <a href="#faq">FAQ</a>
-        <a href="#kontakt" class="btn btn--small">Kontakt</a>
+        <a href="#kontakt" class="btn btn--small">Zdarma konzultace</a>
       </nav>
       <button class="nav__toggle" aria-label="Menu" id="navToggle">
         <span></span><span></span><span></span>
@@ -157,17 +159,101 @@
 
   <main>
   <!-- HERO -->
-  <section class="hero" id="top" aria-labelledby="heroTitle">
-    <div class="container hero__grid">
+  <section class="hero hero--fullbg" id="top" aria-labelledby="heroTitle">
+    <div class="hero__media">
+      <video
+        class="hero__bg"
+        poster="assets/honza-hero-1.JPG"
+        autoplay muted loop playsinline preload="auto"
+        aria-hidden="true">
+        <source src="assets/hero-video.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="container hero__content">
       <div class="hero__text reveal">
-        <h1 id="heroTitle">Pohyb <span class="accent">bez bolesti.</span></h1>
-        <p class="lead">Osobní tréninky postavené na kineziologii.</p>
+        <h1 id="heroTitle">Začněte se cítit lépe ve svém těle <span class="accent">během 30 dní.</span></h1>
+        <p class="lead">Dostanete jednoduché aplikovatelné kroky do běžného života, odborné vedení během osobních tréninků na základě metody TRS a podporu na WhatsApp 24/7.</p>
         <div class="hero__cta">
-          <a href="#kontakt" class="btn btn--primary">Rezervovat lekci</a>
+          <a href="#kontakt" class="btn btn--primary">Zarezervovat konzultaci zdarma</a>
+          <a href="https://instagram.com/honza.mbk" target="_blank" rel="noopener" class="btn btn--ghost">Napsat na Instagram</a>
+        </div>
+        <ul class="hero__checks">
+          <li>WhatsApp podpora 24/7</li>
+          <li>Individuální přístup</li>
+          <li>Vhodné pro každého</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM / FOR WHOM -->
+  <section class="forwhom">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">Pro koho to je</span>
+        <h2>Poznáváte se v tomhle?</h2>
+      </div>
+      <div class="forwhom__grid">
+        <div class="forwhom__card reveal">
+          <h3>Sedavá práce</h3>
+          <p>Dlouhé hodiny u počítače, napětí v zádech a zkrácené svaly. Vrátíme tělu rozsah a sílu.</p>
+        </div>
+        <div class="forwhom__card reveal">
+          <h3>Bolesti zad a kloubů</h3>
+          <p>Zbytečné omezení v každodenním životě. Pracujeme s příčinou, nejen se symptomy.</p>
+        </div>
+        <div class="forwhom__card reveal">
+          <h3>Nejistota kde začít</h3>
+          <p>Posilovna může být zastrašující. Provedu vás každým krokem — bez tlaku a bez ega.</p>
+        </div>
+        <div class="forwhom__card reveal">
+          <h3>Špatné zkušenosti</h3>
+          <p>Pokud vás někdo „hnal přes limity", mám pro vás jiný přístup. Tělo si zaslouží respekt.</p>
         </div>
       </div>
-      <div class="hero__image reveal">
-        <img src="assets/honza-hero-1.JPG" alt="Honza Procházka — trenér kineziologie v Praze" width="600" height="750" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- OFFER / VALUE STACK -->
+  <section class="offer" id="konzultace">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">Zdarma úvodní konzultace</span>
+        <h2>Co dostanete, když napíšete</h2>
+        <p>Žádný prodejní pohovor. Jen prostor zjistit, co vaše tělo skutečně potřebuje.</p>
+      </div>
+      <div class="offer__grid">
+        <article class="card reveal">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <h3>Kineziologický screening</h3>
+          <p>Zjistíme, jak se váš pohybový aparát chová a kde je skutečná příčina potíží.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+          </div>
+          <h3>Rozbor pohybu a bolesti</h3>
+          <p>Projdeme historii, cíle i to, co vás aktuálně v pohybu limituje.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg>
+          </div>
+          <h3>Plán na míru</h3>
+          <p>Odejdete s jasnou představou, jak dál — ať se rozhodnete pokračovat, nebo ne.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/></svg>
+          </div>
+          <h3>Žádný závazek</h3>
+          <p>Žádný tlak na koupi balíčku. Rozhodnutí, jestli budeme pokračovat, je celé na vás.</p>
+        </article>
+      </div>
+      <div class="offer__cta reveal">
+        <a href="#kontakt" class="btn btn--primary">Zarezervovat konzultaci zdarma</a>
       </div>
     </div>
   </section>
@@ -191,7 +277,7 @@
         <li>Specializace na kineziologii a funkční pohyb</li>
         <li>Form Factory — Václavské náměstí, Praha</li>
       </ul>
-      <a href="#kontakt" class="btn btn--primary">Domluvit konzultaci</a>
+      <a href="#kontakt" class="btn btn--primary">Zarezervovat konzultaci zdarma</a>
     </div>
   </section>
 
@@ -236,30 +322,63 @@
     </div>
   </section>
 
-  <!-- FOR WHOM -->
-  <section class="forwhom">
+  <!-- HOW IT WORKS -->
+  <section class="steps" id="jak-to-funguje">
     <div class="container">
       <div class="section__head reveal">
-        <span class="eyebrow">Pro koho</span>
-        <h2>Možná se v tom poznáte</h2>
+        <span class="eyebrow">Jak to funguje</span>
+        <h2>Tři kroky k první konzultaci</h2>
+        <p>Jednoduché, bez zbytečných kroků navíc.</p>
       </div>
-      <div class="forwhom__grid">
-        <div class="forwhom__card reveal">
-          <h3>Sedavá práce</h3>
-          <p>Dlouhé hodiny u počítače, napětí v zádech a zkrácené svaly. Vrátíme tělu rozsah a sílu.</p>
+      <div class="steps__grid">
+        <div class="step reveal">
+          <div class="step__num">1</div>
+          <h3>Napíšete mi</h3>
+          <p>Pár řádků přes kontaktní formulář — jméno, email a co vás trápí.</p>
         </div>
-        <div class="forwhom__card reveal">
-          <h3>Bolesti zad a kloubů</h3>
-          <p>Zbytečné omezení v každodenním životě. Pracujeme s příčinou, nejen se symptomy.</p>
+        <div class="step reveal">
+          <div class="step__num">2</div>
+          <h3>Domluvíme termín</h3>
+          <p>Ozvu se vám osobně a najdeme čas na konzultaci zdarma.</p>
         </div>
-        <div class="forwhom__card reveal">
-          <h3>Nejistota kde začít</h3>
-          <p>Posilovna může být zastrašující. Provedu vás každým krokem — bez tlaku a bez ega.</p>
+        <div class="step reveal">
+          <div class="step__num">3</div>
+          <h3>Sejdeme se</h3>
+          <p>Ve Form Factory na Václavském náměstí probereme plán na míru.</p>
         </div>
-        <div class="forwhom__card reveal">
-          <h3>Špatné zkušenosti</h3>
-          <p>Pokud vás někdo „hnal přes limity", mám pro vás jiný přístup. Tělo si zaslouží respekt.</p>
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container faq__inner">
+      <div class="section__head reveal">
+        <span class="eyebrow">Časté dotazy</span>
+        <h2>Co vás možná zajímá</h2>
+      </div>
+
+      <div class="faq__list">
+        <details class="reveal">
+          <summary>Je to vhodné, i když mě něco bolí?</summary>
+          <p>Ano — a často je to ten nejlepší důvod začít. Každý trénink přizpůsobím vašemu aktuálnímu stavu. V případě vážnějších problémů doporučuji konzultaci s lékařem.</p>
+        </details>
+        <details class="reveal">
+          <summary>Musím mít předchozí zkušenost s cvičením?</summary>
+          <p>Vůbec ne. Většina mých klientů začíná úplně od začátku nebo po dlouhé pauze. Projdeme si základy v klidném tempu.</p>
+        </details>
+        <details class="reveal">
+          <summary>Jak vypadá první lekce?</summary>
+          <p>Nejdřív si povídáme o vašem těle, cílech a historii. Poté následuje kineziologický vstupní screening a lehký pohybový úvod. Bez stresu, bez hodnocení.</p>
+        </details>
+        <details class="reveal">
+          <summary>Co si mám přinést?</summary>
+          <p>Sportovní oblečení, boty do posilovny, ručník a pití. Vše ostatní je na místě.</p>
+        </details>
+        <details class="reveal">
+          <summary>Kde tréninky probíhají?</summary>
+          <p>Ve Form Factory na Václavském náměstí v Praze — dostupné z celého centra.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -268,7 +387,9 @@
   <section class="pricing" id="cenik">
     <div class="container">
       <div class="section__head reveal">
+        <span class="eyebrow">Jak to pokračuje</span>
         <h2>Ceník</h2>
+        <p>Po úvodní konzultaci zdarma se společně domluvíme, jestli a jak budeme pokračovat.</p>
       </div>
 
       <div class="pricing__grid">
@@ -307,46 +428,12 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="faq" id="faq">
-    <div class="container faq__inner">
-      <div class="section__head reveal">
-        <span class="eyebrow">Časté dotazy</span>
-        <h2>Co vás možná zajímá</h2>
-      </div>
-
-      <div class="faq__list">
-        <details class="reveal">
-          <summary>Je to vhodné, i když mě něco bolí?</summary>
-          <p>Ano — a často je to ten nejlepší důvod začít. Každý trénink přizpůsobím vašemu aktuálnímu stavu. V případě vážnějších problémů doporučuji konzultaci s lékařem.</p>
-        </details>
-        <details class="reveal">
-          <summary>Musím mít předchozí zkušenost s cvičením?</summary>
-          <p>Vůbec ne. Většina mých klientů začíná úplně od začátku nebo po dlouhé pauze. Projdeme si základy v klidném tempu.</p>
-        </details>
-        <details class="reveal">
-          <summary>Jak vypadá první lekce?</summary>
-          <p>Nejdřív si povídáme o vašem těle, cílech a historii. Poté následuje kineziologický vstupní screening a lehký pohybový úvod. Bez stresu, bez hodnocení.</p>
-        </details>
-        <details class="reveal">
-          <summary>Co si mám přinést?</summary>
-          <p>Sportovní oblečení, boty do posilovny, ručník a pití. Vše ostatní je na místě.</p>
-        </details>
-        <details class="reveal">
-          <summary>Kde tréninky probíhají?</summary>
-          <p>Ve Form Factory na Václavském náměstí v Praze — dostupné z celého centra.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA / CONTACT -->
   <section class="cta" id="kontakt">
     <div class="container cta__grid">
       <div class="cta__text reveal">
-        <span class="eyebrow">Aktuálně mám volná místa</span>
         <h2>Pojďme začít.</h2>
-        <p>Napište mi pár řádků. Ozvu se vám osobně a domluvíme první nezávaznou konzultaci.</p>
+        <p>Napište mi pár řádků. Ozvu se vám osobně a domluvíme úvodní konzultaci zdarma.</p>
         <ul class="cta__contact">
           <li><span>Email</span><a href="mailto:honza.sac@gmail.com">honza.sac@gmail.com</a></li>
           <li><span>Instagram</span><a href="https://instagram.com/honza.mbk" target="_blank" rel="noopener">@honza.mbk</a></li>
@@ -396,7 +483,7 @@
     </div>
   </footer>
 
-  <a href="#kontakt" class="sticky-cta">Rezervovat lekci</a>
+  <a href="#kontakt" class="sticky-cta">Zdarma konzultace</a>
 
   <script src="script.js"></script>
 </body>
