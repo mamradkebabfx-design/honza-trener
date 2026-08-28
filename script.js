@@ -85,12 +85,12 @@ if (form) {
     };
 
     if (!payload.name || !payload.email) {
-      status.textContent = 'Prosím vyplňte jméno a email.';
+      status.textContent = 'Prosím vyplň jméno a email.';
       status.className = 'form__status error';
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
-      status.textContent = 'Zadejte prosím platný email.';
+      status.textContent = 'Zadej prosím platný email.';
       status.className = 'form__status error';
       return;
     }
@@ -110,7 +110,7 @@ if (form) {
       const data = await res.json().catch(() => ({}));
 
       if (res.ok && data.success) {
-        status.textContent = 'Děkuji! Zpráva odeslána, ozvu se vám co nejdříve.';
+        status.textContent = 'Děkuji! Zpráva odeslána, ozvu se ti co nejdříve.';
         status.className = 'form__status success';
         form.reset();
 
