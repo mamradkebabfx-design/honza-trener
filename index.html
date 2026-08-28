@@ -87,43 +87,6 @@
         "offers": [
           { "@type": "Offer", "name": "Úvodní konzultace", "price": "0", "priceCurrency": "CZK" }
         ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Je to vhodné, i když mě něco bolí?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ano — a často je to ten nejlepší důvod začít. Každý trénink přizpůsobím vašemu aktuálnímu stavu. V případě vážnějších problémů doporučuji konzultaci s lékařem."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Musím mít předchozí zkušenost s cvičením?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Vůbec ne. Většina mých klientů začíná úplně od začátku nebo po dlouhé pauze. Projdeme si základy v klidném tempu."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Jak vypadá první lekce?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Nejdřív si povídáme o vašem těle, cílech a historii. Poté následuje kineziologický vstupní screening a lehký pohybový úvod."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Kde tréninky probíhají?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ve Form Factory na Václavském náměstí v Praze — dostupné z celého centra."
-            }
-          }
-        ]
       }
     ]
   }
@@ -133,29 +96,17 @@
 </head>
 <body>
 
-  <!-- NAV -->
-  <header class="nav" id="nav">
-    <div class="container nav__inner">
-      <a href="#top" class="nav__logo">
-        <img src="assets/logo.png" alt="Logo Honza Procházka osobní trenér" width="34" height="34" />
-        <span>Honza Procházka</span>
-      </a>
-      <nav class="nav__links" aria-label="Hlavní navigace">
-        <a href="#o-mne">O mně</a>
-        <a href="#benefity">Co získáte</a>
-        <a href="#faq">FAQ</a>
-        <a href="#kontakt" class="btn btn--small">Zdarma konzultace</a>
-      </nav>
-      <button class="nav__toggle" aria-label="Menu" id="navToggle">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+  <header class="top-nav" id="nav">
+    <a href="#o-mne">O mně</a>
+    <a href="https://wa.me/420774338079?text=Ahoj%20Honzo%2C%20zaj%C3%ADm%C3%A1%20m%C4%9B%20cen%C3%ADk%20tr%C3%A9nink%C5%AF." target="_blank" rel="noopener">Ceník</a>
+    <a href="#kontakt">Kontakt</a>
   </header>
 
   <main>
   <!-- HERO -->
   <section class="hero hero--fullbg" id="top" aria-labelledby="heroTitle">
     <div class="hero__media">
+      <div class="hero__backdrop" aria-hidden="true"></div>
       <video
         class="hero__bg"
         poster="assets/honza-hero-1.JPG"
@@ -169,42 +120,15 @@
         <h1 id="heroTitle">Začněte se cítit lépe ve svém těle <span class="accent">během 30 dní.</span></h1>
         <p class="lead">Dostanete jednoduché aplikovatelné kroky do běžného života, odborné vedení během osobních tréninků na základě metody TRS a podporu na WhatsApp 24/7.</p>
         <div class="hero__cta">
-          <a href="#kontakt" class="btn btn--primary">Zarezervovat konzultaci zdarma</a>
-          <a href="https://instagram.com/honza.mbk" target="_blank" rel="noopener" class="btn btn--ghost">Napsat na Instagram</a>
+          <a href="#kontakt" class="btn btn--primary js-book-trigger">Zarezervovat konzultaci zdarma</a>
+          <a href="https://wa.me/420774338079?text=Ahoj%20Honzo%2C%20m%C3%A1m%20z%C3%A1jem%20o%20konzultaci%20zdarma." target="_blank" rel="noopener" class="btn btn--ghost">Napsat na WhatsApp</a>
         </div>
         <ul class="hero__checks">
-          <li>WhatsApp podpora 24/7</li>
-          <li>Individuální přístup</li>
-          <li>Vhodné pro každého</li>
+          <li>30+ spokojených klientů</li>
+          <li>1:1 coaching</li>
+          <li>Vhodné i pro začátečníky</li>
+          <li>WhatsApp komunikace 24/7</li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROBLEM / FOR WHOM -->
-  <section class="forwhom">
-    <div class="container">
-      <div class="section__head reveal">
-        <span class="eyebrow">Pro koho to je</span>
-        <h2>Poznáváte se v tomhle?</h2>
-      </div>
-      <div class="forwhom__grid">
-        <div class="forwhom__card reveal">
-          <h3>Sedavá práce</h3>
-          <p>Dlouhé hodiny u počítače, napětí v zádech a zkrácené svaly. Vrátíme tělu rozsah a sílu.</p>
-        </div>
-        <div class="forwhom__card reveal">
-          <h3>Bolesti zad a kloubů</h3>
-          <p>Zbytečné omezení v každodenním životě. Pracujeme s příčinou, nejen se symptomy.</p>
-        </div>
-        <div class="forwhom__card reveal">
-          <h3>Nejistota kde začít</h3>
-          <p>Posilovna může být zastrašující. Provedu vás každým krokem — bez tlaku a bez ega.</p>
-        </div>
-        <div class="forwhom__card reveal">
-          <h3>Špatné zkušenosti</h3>
-          <p>Pokud vás někdo „hnal přes limity", mám pro vás jiný přístup. Tělo si zaslouží respekt.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -213,9 +137,7 @@
   <section class="offer" id="konzultace">
     <div class="container">
       <div class="section__head reveal">
-        <span class="eyebrow">Zdarma úvodní konzultace</span>
-        <h2>Co dostanete, když napíšete</h2>
-        <p>Žádný prodejní pohovor. Jen prostor zjistit, co vaše tělo skutečně potřebuje.</p>
+        <h2>Jak probíhá konzultace zdarma?</h2>
       </div>
       <div class="offer__grid">
         <article class="card reveal">
@@ -248,7 +170,34 @@
         </article>
       </div>
       <div class="offer__cta reveal">
-        <a href="#kontakt" class="btn btn--primary">Zarezervovat konzultaci zdarma</a>
+        <a href="#kontakt" class="btn btn--primary js-book-trigger">Zarezervovat konzultaci zdarma</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM / FOR WHOM -->
+  <section class="forwhom">
+    <div class="container">
+      <div class="section__head reveal">
+        <h2>Poznáváte se v tomhle?</h2>
+      </div>
+      <div class="forwhom__grid">
+        <div class="forwhom__card reveal">
+          <h3>Sedavá práce</h3>
+          <p>Dlouhé hodiny u počítače, napětí v zádech a zkrácené svaly. Vrátíme tělu rozsah a sílu.</p>
+        </div>
+        <div class="forwhom__card reveal">
+          <h3>Bolesti zad a kloubů</h3>
+          <p>Zbytečné omezení v každodenním životě. Pracujeme s příčinou, nejen se symptomy.</p>
+        </div>
+        <div class="forwhom__card reveal">
+          <h3>Nejistota kde začít</h3>
+          <p>Posilovna může být zastrašující. Provedu vás každým krokem — bez tlaku a bez ega.</p>
+        </div>
+        <div class="forwhom__card reveal">
+          <h3>Špatné zkušenosti</h3>
+          <p>Pokud vás někdo „hnal přes limity", mám pro vás jiný přístup. Tělo si zaslouží respekt.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -256,7 +205,6 @@
   <!-- ABOUT -->
   <section class="about" id="o-mne">
     <div class="container about__text-only reveal">
-      <span class="eyebrow">O trenérovi</span>
       <h2>Znám bolest na vlastní kůži.<br/>A vím, jak z ní ven.</h2>
       <p>
         Celý život se aktivně věnuji pohybu a sportu. V mládí mi byla diagnostikována
@@ -272,7 +220,7 @@
         <li>Specializace na kineziologii a funkční pohyb</li>
         <li>Form Factory — Václavské náměstí, Praha</li>
       </ul>
-      <a href="#kontakt" class="btn btn--primary">Zarezervovat konzultaci zdarma</a>
+      <a href="#kontakt" class="btn btn--primary js-book-trigger">Zarezervovat konzultaci zdarma</a>
     </div>
   </section>
 
@@ -280,7 +228,6 @@
   <section class="benefits" id="benefity">
     <div class="container">
       <div class="section__head reveal">
-        <span class="eyebrow">Co získáte</span>
         <h2>Trénink, který dává smysl vašemu tělu</h2>
         <p>Žádné univerzální plány. Každý pohyb má důvod.</p>
       </div>
@@ -321,7 +268,6 @@
   <section class="steps" id="jak-to-funguje">
     <div class="container">
       <div class="section__head reveal">
-        <span class="eyebrow">Jak to funguje</span>
         <h2>Tři kroky k první konzultaci</h2>
         <p>Jednoduché, bez zbytečných kroků navíc.</p>
       </div>
@@ -345,39 +291,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="faq" id="faq">
-    <div class="container faq__inner">
-      <div class="section__head reveal">
-        <span class="eyebrow">Časté dotazy</span>
-        <h2>Co vás možná zajímá</h2>
-      </div>
-
-      <div class="faq__list">
-        <details class="reveal">
-          <summary>Je to vhodné, i když mě něco bolí?</summary>
-          <p>Ano — a často je to ten nejlepší důvod začít. Každý trénink přizpůsobím vašemu aktuálnímu stavu. V případě vážnějších problémů doporučuji konzultaci s lékařem.</p>
-        </details>
-        <details class="reveal">
-          <summary>Musím mít předchozí zkušenost s cvičením?</summary>
-          <p>Vůbec ne. Většina mých klientů začíná úplně od začátku nebo po dlouhé pauze. Projdeme si základy v klidném tempu.</p>
-        </details>
-        <details class="reveal">
-          <summary>Jak vypadá první lekce?</summary>
-          <p>Nejdřív si povídáme o vašem těle, cílech a historii. Poté následuje kineziologický vstupní screening a lehký pohybový úvod. Bez stresu, bez hodnocení.</p>
-        </details>
-        <details class="reveal">
-          <summary>Co si mám přinést?</summary>
-          <p>Sportovní oblečení, boty do posilovny, ručník a pití. Vše ostatní je na místě.</p>
-        </details>
-        <details class="reveal">
-          <summary>Kde tréninky probíhají?</summary>
-          <p>Ve Form Factory na Václavském náměstí v Praze — dostupné z celého centra.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA / CONTACT -->
   <section class="cta" id="kontakt">
     <div class="container cta__grid">
@@ -386,7 +299,7 @@
         <p>Napište mi pár řádků. Ozvu se vám osobně a domluvíme úvodní konzultaci zdarma.</p>
         <ul class="cta__contact">
           <li><span>Email</span><a href="mailto:honza.sac@gmail.com">honza.sac@gmail.com</a></li>
-          <li><span>Instagram</span><a href="https://instagram.com/honza.mbk" target="_blank" rel="noopener">@honza.mbk</a></li>
+          <li><span>WhatsApp</span><a href="https://wa.me/420774338079?text=Ahoj%20Honzo%2C%20m%C3%A1m%20z%C3%A1jem%20o%20konzultaci%20zdarma." target="_blank" rel="noopener">+420 774 338 079</a></li>
           <li><span>Místo</span>Form Factory — Václavské nám., Praha</li>
         </ul>
       </div>
@@ -426,14 +339,32 @@
       </div>
       <div class="footer__links">
         <a href="mailto:honza.sac@gmail.com">honza.sac@gmail.com</a>
-        <a href="https://instagram.com/honza.mbk" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://wa.me/420774338079?text=Ahoj%20Honzo%2C%20m%C3%A1m%20z%C3%A1jem%20o%20konzultaci%20zdarma." target="_blank" rel="noopener">WhatsApp</a>
         <a href="privacy-policy.html">Zásady ochrany</a>
       </div>
       <p class="footer__copy">© <span id="year"></span> Honza Procházka · Osobní trénink Praha</p>
     </div>
   </footer>
 
-  <a href="#kontakt" class="sticky-cta">Zdarma konzultace</a>
+  <a href="#kontakt" class="sticky-cta js-book-trigger">Zdarma konzultace</a>
+
+  <!-- BOOKING MODAL -->
+  <div class="booking-modal" id="bookingModal" aria-hidden="true">
+    <div class="booking-modal__overlay" data-close-modal></div>
+    <div class="booking-modal__box" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+      <div class="booking-modal__head">
+        <h2 id="bookingModalTitle">Vyberte si termín konzultace</h2>
+        <button type="button" class="booking-modal__close" data-close-modal aria-label="Zavřít">&times;</button>
+      </div>
+      <div class="booking-modal__body">
+        <iframe
+          id="bookingIframe"
+          data-src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2kKdaKm-h5veYHAbBMot-ro6JJcJia-TehZ7Cx1Xg7RnlF7zP2W-jWPgGp0fqqNdHDJjJE0T07?gv=true"
+          style="border:0" width="100%" height="100%" frameborder="0" loading="lazy"
+          title="Rezervace úvodní konzultace zdarma"></iframe>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
