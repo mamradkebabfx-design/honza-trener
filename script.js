@@ -26,44 +26,19 @@ if (toggle && links) {
   );
 }
 
-// Reveal on scroll
+// Reveal on scroll (once — stays visible after first reveal)
 const io = new IntersectionObserver(
   entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
   { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
 );
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+document.querySelectorAll('.reveal:not([data-reveal="repeat"])').forEach(el => io.observe(el));
 
-// Booking modal — opens Google Calendar appointment scheduling
-// (only present on index.html)
-const bookingModal = document.getElementById('bookingModal');
-const bookingIframe = document.getElementById('bookingIframe');
-if (bookingModal && bookingIframe) {
-  const openBookingModal = () => {
-    if (!bookingIframe.src) bookingIframe.src = bookingIframe.dataset.src;
-    bookingModal.classList.add('is-open');
-    bookingModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeBookingModal = () => {
-    bookingModal.classList.remove('is-open');
-    bookingModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
-
-  document.querySelectorAll('.js-book-trigger').forEach(el =>
-    el.addEventListener('click', e => {
-      e.preventDefault();
-      openBookingModal();
-    })
-  );
-  bookingModal.querySelectorAll('[data-close-modal]').forEach(el =>
-    el.addEventListener('click', closeBookingModal)
-  );
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && bookingModal.classList.contains('is-open')) closeBookingModal();
-  });
-}
+// Reveal on scroll (repeat — replays every time the element enters view, e.g. scrolling back up)
+const ioRepeat = new IntersectionObserver(
+  entries => entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting)),
+  { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+);
+document.querySelectorAll('[data-reveal="repeat"]').forEach(el => ioRepeat.observe(el));
 
 // Contact form — posts to /api/contact (Vercel serverless → Resend)
 // (only present on index.html)
