@@ -433,6 +433,19 @@ p{color:var(--text-2)}
 .pricing-table__row--featured td{background:rgba(20,162,119,.07)}
 .pricing-table__row--featured .pricing-table__variant{color:var(--accent)}
 
+@media (max-width:768px){
+  .pricing-table-wrap{overflow-x:visible}
+  .pricing-table{min-width:auto;display:block}
+  .pricing-table thead{display:none}
+  .pricing-table tbody{display:flex;flex-direction:column;gap:1.5rem}
+  .pricing-table tbody tr{display:block;border:1px solid var(--dark-line);border-radius:var(--radius);padding:1.5rem;background:var(--card-dark)}
+  .pricing-table tbody tr:last-child{border-bottom:1px solid var(--dark-line)}
+  .pricing-table tbody td{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:0.75rem 0;border:none;align-items:center}
+  .pricing-table tbody td:first-child{grid-column:1/-1;margin-bottom:0.5rem;font-weight:700}
+  .pricing-table__price{text-align:left}
+  .pricing-table__row--featured{background:rgba(20,162,119,.12);border-color:var(--accent)}
+}
+
 /* ---------- SERVICES OVERVIEW (cards + focus list, above the pricing table) ---------- */
 .services-overview{max-width:900px;margin:0 auto 4rem}
 .services-overview__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-bottom:2.5rem}
