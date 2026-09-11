@@ -32,9 +32,27 @@ python3 -m http.server 8000
 
 **`script.js`/`styles.css` caching gotcha with `python3 -m http.server`:** Python's SimpleHTTPServer sends `Last-Modified` but no `Cache-Control`, so Chrome's disk cache can keep serving a stale `script.js` **or `styles.css`** even after a normal reload or after navigating with a cache-busting query string on the *page* URL — a `<script src="script.js">` or `<link rel="stylesheet" href="styles.css">` sub-resource request is unaffected by a query string on the page's own URL, since that only busts the document itself. Symptom for JS: edited code silently doesn't run, zero console errors. Symptom for CSS (confirmed 2026-09-07 during the dark-theme rewrite): edited styles don't show up even after several page reloads with `?v=...` cache-busting, even though the file on disk is correct — `fetch('/styles.css', {cache:'no-store'})` confirms the server is serving the new content, it's purely a stale browser cache of the sub-resource. **Fix: hard reload (Cmd+Shift+R), not a normal refresh**, whenever testing a `script.js` or `styles.css` change locally — a page-URL query string alone does not reliably bust either. This is a local-dev-only issue — Vercel/CDN cache invalidates correctly per deploy, so it doesn't affect production.
 
+## Session 2026-09-11 — redesign "Co získáš spoluprácí se mnou?" section
+
+Redesigned the benefits section with CSS Grid layout:
+
+- **Restructured to 2-column grid**: numbers (70px fixed, `auto`-width column left) + content (flexible `1fr` right)
+- **CSS Grid with `grid-template-areas`**: `num`, `heading`, `list` for clean placement
+- **Numbers beside headings**: used `grid-template-areas` to position `.benefit__number` next to `h3` (same left, two rows spanning)
+- **Minimized vertical spacing**: 
+  - `.benefit h3 margin: 0` (removed all margins)
+  - `.benefit ul margin: 0` (no margin on list)
+  - `.benefit li:first-child margin-top: -0.3rem` (negative margin on first bullet to tighten spacing)
+  - `.benefit { gap: 1.5rem 0 }` (1.5rem horizontal only, 0 vertical)
+- **Text wrapping fix**: Added `min-width: 0` on `.benefit h3` and `.benefit ul` to enable proper text wrapping in flex/grid contexts
+- **Responsive**: Added media query for mobile (≤768px) to switch `.benefits__grid` from 2 columns to 1
+- **All 5 benefits** properly formatted with correct content and spacing
+
+Commit: `8a113a1` — "Redesign 'Co získáš spoluprácí se mnou?' section with CSS Grid layout"
+
 ## Session 2026-09-10 — separate O mně page, services merged onto index.html, LLM Council review
 
-Big structural session. Highlights (all committed to disk but **not yet git-committed** — see git status):
+Big structural session. Highlights:
 
 - **`o-mne.html` is now a real, standalone page** (was created in the session just before this one — not documented anywhere in this file until now, worth knowing since a lot of the "Architecture"/"Booking modal"/nav documentation below predates it and is stale). It holds the About content that used to live in `index.html`'s `.about`/`#o-mne` section — that section, along with `.offer`/`#konzultace` and the entire Google Calendar **booking modal**, **no longer exist on `index.html` at all** (confirmed by grep — see the "⚠️ SUPERSEDED" note on the Booking modal section below). `o-mne.html` has two `.about__grid` blocks (bio story + photo, then "Pro koho tu jsem?" + a second photo), its own `.nav`/`#nav` header (`Domů` / `Služby` / `FAQ` / `Zdarma konzultace`, all pointing back to `index.html` anchors), and a compact one-screen footer. This session's edits to it: swapped bio paragraph order, trimmed two phrases ("(díky bohu za ni)", "všechny sporty"), removed the redundant `<h1>O mně</h1>` (promoted "Kdo jsem?" to `<h1>`, unified its font with the "Pro koho tu jsem?" `<h2>` via `.about__text h1,.about__text h2`), removed the CTA button and the decorative green bar under the photo, changed the photo aspect ratio to `3/4`/`object-position:center 15%` so the full body/face shows, and swapped the second photo to `assets/honza-hero-1.JPG`.
 - **`sluzby.html` (a standalone services/pricing page created earlier this session) was merged into `index.html` and then deleted** — confirmed gone from disk. Its content now lives in a new `<section class="pricing" id="sluzby">` on `index.html`, positioned between `.process` and `.faq`. All nav links across `index.html`, `o-mne.html`, `privacy-policy.html`, and `sitemap.xml` were repointed from `sluzby.html` to `#sluzby`/`index.html#sluzby`.
