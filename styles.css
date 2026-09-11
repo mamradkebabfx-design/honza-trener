@@ -406,44 +406,63 @@ p{color:var(--text-2)}
 .plan--featured .plan__price small{color:rgba(255,255,255,.75)}
 .pricing__note{text-align:center;margin-top:2rem;color:var(--text-muted);font-size:.9rem}
 
-/* ---------- PRICING TABLE (sluzby.html) ---------- */
-.pricing-table-wrap{overflow-x:auto;max-width:900px;margin:0 auto}
-.pricing-table{width:100%;min-width:640px;border-collapse:collapse}
-.pricing-table thead th{
-  text-align:left;padding:0 1.25rem .85rem;
-  font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;
-  color:var(--text-muted);border-bottom:1px solid var(--dark-line);
+/* ---------- PRICING CARDS ---------- */
+.pricing__cards{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.75rem;
+  max-width:1200px;margin:0 auto;
 }
-.pricing-table thead th:last-child{text-align:right}
-.pricing-table tbody td{
-  padding:1.25rem;border-bottom:1px solid var(--dark-line);
-  vertical-align:middle;color:var(--text-2);font-size:.95rem;
+.pricing__card{
+  background:var(--card-dark);border:1px solid var(--dark-line);
+  border-radius:var(--radius);padding:2rem;text-align:center;
+  position:relative;transition:all .3s var(--ease);
+  display:flex;flex-direction:column;gap:1.25rem;
 }
-.pricing-table tbody tr:last-child td{border-bottom:0}
-.pricing-table__variant{font-weight:700;color:var(--text);white-space:nowrap}
-.pricing-table__badge{
-  display:inline-block;margin-left:.5rem;padding:.2rem .6rem;
-  background:var(--accent);color:#fff;font-size:.68rem;font-weight:600;
-  text-transform:uppercase;letter-spacing:.05em;border-radius:999px;vertical-align:middle;
+.pricing__card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.pricing__card h3{font-size:1.1rem;font-weight:700;color:var(--text);margin:0}
+.pricing__description{
+  font-size:.9rem;color:var(--text-muted);margin:0;
 }
-.pricing-table__price{text-align:right;white-space:nowrap}
-.pricing-table__price{font-size:1.3rem;font-weight:800;color:var(--text)}
-.pricing-table__price span{font-size:.85rem;font-weight:400;color:var(--text-muted);margin-left:.15rem}
-.pricing-table__price small{display:block;font-size:.78rem;font-weight:400;color:var(--text-muted);margin-top:.15rem}
-.pricing-table__row--featured td{background:rgba(20,162,119,.07)}
-.pricing-table__row--featured .pricing-table__variant{color:var(--accent)}
+.pricing__features{
+  text-align:left;font-size:.9rem;color:var(--text-2);
+  display:flex;flex-direction:column;gap:.5rem;
+  padding:.75rem 0;border-top:1px solid var(--dark-line);border-bottom:1px solid var(--dark-line);
+  flex-grow:1;
+}
+.pricing__features li{display:flex;gap:.5rem}
+.pricing__features li::before{content:"✓";color:var(--accent);font-weight:700;flex-shrink:0}
+.pricing__price{
+  display:flex;flex-direction:column;gap:.25rem;margin:.5rem 0;
+}
+.price-per-session{
+  font-size:1.5rem;font-weight:800;color:var(--text);
+}
+.price-per-session small{
+  font-size:.8rem;font-weight:400;color:var(--text-muted);
+}
+.price-per-month{
+  font-size:.95rem;font-weight:600;color:var(--accent);
+}
+.pricing__card--featured{
+  border-color:var(--accent);background:rgba(20,162,119,.08);
+  transform:scale(1.02);
+}
+.pricing__card--featured:hover{transform:scale(1.02) translateY(-6px)}
+.pricing__badge{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--accent);color:#fff;font-size:.75rem;font-weight:600;
+  padding:.4rem .85rem;border-radius:999px;
+}
+.pricing__card .btn{width:100%}
 
-@media (max-width:768px){
-  .pricing-table-wrap{overflow-x:visible}
-  .pricing-table{min-width:auto;display:block}
-  .pricing-table thead{display:none}
-  .pricing-table tbody{display:flex;flex-direction:column;gap:1.5rem}
-  .pricing-table tbody tr{display:block;border:1px solid var(--dark-line);border-radius:var(--radius);padding:1.5rem;background:var(--card-dark)}
-  .pricing-table tbody tr:last-child{border-bottom:1px solid var(--dark-line)}
-  .pricing-table tbody td{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:0.75rem 0;border:none;align-items:center}
-  .pricing-table tbody td:first-child{grid-column:1/-1;margin-bottom:0.5rem;font-weight:700}
-  .pricing-table__price{text-align:left}
-  .pricing-table__row--featured{background:rgba(20,162,119,.12);border-color:var(--accent)}
+@media (max-width:1024px){
+  .pricing__cards{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+  .pricing__card--featured{transform:scale(1)}
+  .pricing__card--featured:hover{transform:translateY(-6px)}
+}
+
+@media (max-width:600px){
+  .pricing__cards{grid-template-columns:1fr;gap:1.25rem}
+  .pricing__card--featured{transform:scale(1)}
 }
 
 /* ---------- SERVICES OVERVIEW (cards + focus list, above the pricing table) ---------- */
