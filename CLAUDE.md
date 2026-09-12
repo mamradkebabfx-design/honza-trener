@@ -50,6 +50,27 @@ Redesigned the benefits section with CSS Grid layout:
 
 Commit: `8a113a1` — "Redesign 'Co získáš spoluprácí se mnou?' section with CSS Grid layout"
 
+## Session 2026-09-12 — white/light theme version created
+
+Created a white theme variant of the entire website:
+
+- **`index-white.html`** — identical copy of `index.html` but references `styles-white.css` instead of `styles.css`
+- **`styles-white.css`** — complete copy of `styles.css` with color scheme inverted for light/white theme:
+  - `--dark-bg: #ffffff` (was `#0f1113`)
+  - `--dark-bg-alt: #f8f9fa` (was `#0f1113`)
+  - `--card-dark: #f0f1f3` (was `#1a1d1f`)
+  - `--text: #0f1113` (was `#f5f6f7`)
+  - `--text-2: #3a3f45` (was `#c8cdd3`)
+  - `--text-muted: #6b7280` (unchanged, already mid-tone)
+  - `--dark-line: #e6e7ea` (was `rgba(255,255,255,.12)`)
+  - Accent color `--accent: #14a277` remains unchanged
+  - Light island surfaces (`.cta__form`, `.booking-modal__box`) now invert to dark cards with light text inside
+- **White theme ready for A/B testing and development** — can be served from `index-white.html` locally or deployed alongside the dark version
+
+Commits: `0c060ed` — "Add white/light theme version of website"
+
+**Next session:** Continue development using the white theme variant (`index-white.html`/`styles-white.css`) as the primary version to work with.
+
 ## Session 2026-09-10 — separate O mně page, services merged onto index.html, LLM Council review
 
 Big structural session. Highlights:
