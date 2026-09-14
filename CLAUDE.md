@@ -75,6 +75,22 @@ Commits: `0c060ed` — "Add white/light theme version of website"
 
 **Next session:** Continue development using the white theme variant (`index-white.html`/`styles-white.css`) as the primary version to work with.
 
+**⚠️ SUPERSEDED 2026-09-14: done, and gone further than "primary version to work with"** — `index-white.html`/`styles-white.css` were promoted to actually *be* `index.html`/`styles.css` and then deleted as separate files. See "Session 2026-09-14 (continued) — promoted the white/black theme to production" further down for what changed.
+
+## Session 2026-09-14 (continued) — promoted the white/black theme to production, retired the dark theme
+
+**Big structural change, done later the same day as the push documented just below.** The user explicitly asked for the live site to be the "bílo-černá" (white-black) look — i.e. what `index-white.html`/`styles-white.css` already were (white page background, black text, with hero/`.forwhom`/`.cta` kept as deliberate dark panels — that mixed light/dark panel structure is exactly what "bílo-černá" meant here, not a pure black-and-white palette).
+
+**What changed:**
+- `index-white.html` → became the new `index.html` (file replaced, not merged — the two were already nearly identical except for the fixes below).
+- `styles-white.css` → became the new `styles.css`.
+- Old `index-white.html` and `styles-white.css` were **deleted** (`git rm`) — keeping both around after this point would just reintroduce the divergence problem from the last few sessions. If the pre-2026-09-14 dark theme is ever wanted back, it's in git history (last commit with the dark `styles.css`/`index.html`: `56b6e88` and earlier).
+- Production-specific meta fixed on the swapped-in `index.html` (the white variant had these set for its former life as a non-indexed A/B test page, which no longer applies now that it *is* the canonical page): `robots` → back to `index,follow,max-image-preview:large` (was `noindex,nofollow`), `<link rel="stylesheet">` → `styles.css` (was `styles-white.css`). `theme-color` stays `#ffffff` — that's now correct, the page really is white-background.
+- This **also fixes, as a side effect**, everything that "Session 2026-09-14 — pushed..." below flagged as still-broken on the old `index.html`: curly-quote bug, all the typos, English pricing labels, missing GDPR consent line, old submit button text — all of that only existed in the old dark `index.html`, which no longer exists. The "port fixes from white to dark" pending task from that entry (and from "Session 2026-09-12 (continued)") is now moot.
+- `privacy-policy.html` was **not edited** but its appearance changes automatically — it shares `styles.css` and reads `var(--text)`/`body{background:var(--dark-bg)}` for its own colors, so it now renders light/white too. Verified locally: legible black-on-white, nav still shows as the intended always-solid dark bar (`.nav--solid`, unaffected by the token swap since it hardcodes `rgba(15,17,19,.85)`).
+- Verified locally via `static-site` preview (hard-refreshed) before pushing: hero/`.case-study` video area/`.forwhom`/`.cta` render as dark panels, `.about`/`.process`/`.pricing`/services sections render white with dark text, pricing card contrast and consent line are present, no console errors. Then pushed straight to `main` (same as the earlier push this session) and re-verified on `https://www.honzacoach.cz/` directly in the browser.
+- **Not touched / still open:** the `.case-study` Ironman placeholders (`[Jméno]` etc. — none of that copy exists in this file anymore actually, it reads "Příběh přípravy na závod..." generically without brackets already, but still says "Video brzy" with no real video), and `assets/testimonial-whatsapp.png` is still sitting there uncommitted, unused, doesn't fit this section (see previous entry below).
+
 ## Session 2026-09-14 — pushed the 2026-09-12 white theme QA fixes
 
 Committed and pushed the white-theme QA-pass changes that had been sitting uncommitted since the previous session (see "Session 2026-09-12 (continued)" below for the full list of what's in this commit — P0/P1/P2 fixes to `index-white.html`/`styles-white.css`/`script.js`). No new code changes this session beyond that.
