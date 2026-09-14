@@ -40,6 +40,16 @@ const ioRepeat = new IntersectionObserver(
 );
 document.querySelectorAll('[data-reveal="repeat"]').forEach(el => ioRepeat.observe(el));
 
+// Pricing card CTAs — prefill the contact message with the selected plan
+document.querySelectorAll('[data-plan]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const messageField = document.getElementById('message');
+    if (messageField && !messageField.value.trim()) {
+      messageField.value = `Mám zájem o ${btn.dataset.plan}.`;
+    }
+  });
+});
+
 // Contact form — posts to /api/contact (Vercel serverless → Resend)
 // (only present on index.html)
 const form = document.getElementById('contactForm');
